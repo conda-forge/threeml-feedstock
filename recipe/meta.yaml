@@ -1,5 +1,5 @@
 {% set name = "threeml" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/threeML-{{ version }}.tar.gz
-  sha256: 3ca1527669fdbab3c97157f719a9734c7b34c0dcd9712df14e60d313a7aa3227
+  sha256: 8e2465f5ed0713ee17584f9d89012966d90b63aa90100ca8bf0de1b984dbf10a
 
 build:
   noarch: python
