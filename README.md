@@ -1,11 +1,11 @@
-About threeml
-=============
+About threeml-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/threeml-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/threeml/threeML
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/threeml-feedstock/blob/main/LICENSE.txt)
 
 Summary: The Multi-Mission Maximum Likelihood framework
 
