@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/threeML-{{ version }}.tar.gz
   sha256: 8e2465f5ed0713ee17584f9d89012966d90b63aa90100ca8bf0de1b984dbf10a
+  patches:
+    - versioneer.patch
 
 build:
   noarch: python
