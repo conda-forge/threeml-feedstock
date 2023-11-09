@@ -31,7 +31,7 @@ requirements:
     - pyyaml >=5.1
     - dill
     - iminuit >=2.0
-    - astromodels
+    - astromodels <2.4
     - astroquery
     - corner
     - pandas
