@@ -13,43 +13,42 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - pip
     - python >=3.6
+    - pip
   run:
-    - asciitree
-    - astromodels
-    - astropy >=1.3.3
-    - astroquery
-    - colorama
-    - corner
-    - dill
-    - dynesty
+    - python >=3.6
+    - numpy >=1.16
+    - scipy >=1.4
     - emcee >=3
-    - iminuit >=2.0
-    - ipyparallel
-    - ipython
-    - ipywidgets
-    - joblib
+    - astropy >=1.3.3
     - matplotlib-base
+    - uncertainties
+    - pyyaml >=5.1
+    - dill
+    - iminuit >=2.0
+    - astromodels <2.4
+    - astroquery
+    - corner
+    - pandas
+    - requests
+    - speclite >=0.11
+    - ipython
+    - ipyparallel
+    - joblib
+    - numexpr
+    - dynesty
     - numba
     - numdifftools
-    - numexpr
-    - numpy >=1.16
-    - omegaconf
-    - pandas
-    - python >=3.6
-    - pyyaml >=5.1
-    - requests
-    - rich
-    - scipy >=0.18
-    - speclite >=0.11
     - tqdm >=4.56.0
-    - uncertainties
+    - colorama
+    - omegaconf
+    - ipywidgets
+    - rich
 
 test:
   imports:
@@ -63,8 +62,7 @@ about:
   home: https://github.com/threeml/threeML
   summary: The Multi-Mission Maximum Likelihood framework
   license: BSD-3-Clause
-  license_file:
-    - LICENSE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
