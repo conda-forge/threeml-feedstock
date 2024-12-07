@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -25,7 +25,7 @@ requirements:
     - numpy >=1.16
     - scipy >=1.4
     - emcee >=3
-    - astropy
+    - astropy-base
     - matplotlib-base <3.9
     - uncertainties
     - pyyaml >=5.1
