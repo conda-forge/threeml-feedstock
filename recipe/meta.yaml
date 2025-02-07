@@ -1,5 +1,5 @@
 {% set name = "threeml" %}
-{% set version = "2.4.2" %}
+{% set version = "2.4.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 572f49e5f88558c5a5ab3eaebf9fb6a4d2243f643122dce057040c48726edf2e
-  patches:
-    - versioneer.patch
+  sha256: 8020289db4fa4543c8287abc1f11967c2c8cabd6e3eaf4b767233e3b92869693
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -22,6 +20,7 @@ requirements:
     - pip
     - setuptools
   run:
+    - astropy
     - python >={{ python_min }}
     - numpy >=1.16
     - scipy >=1.4
