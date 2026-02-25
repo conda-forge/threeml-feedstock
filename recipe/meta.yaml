@@ -1,5 +1,5 @@
 {% set name = "threeml" %}
-{% set version = "2.4.3" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8020289db4fa4543c8287abc1f11967c2c8cabd6e3eaf4b767233e3b92869693
+  sha256: 256b30757cc30cc7c6fea9d0ecb36bb62af1005bed5654345c0134ecdf454f29
 
 build:
   noarch: python
@@ -18,15 +18,17 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - setuptools <82
+    - versioneer
   run:
+    - packaging
     - astropy
     - python >={{ python_min }}
     - numpy >=1.16
     - scipy >=1.4
     - emcee >=3
     - astropy-base
-    - matplotlib-base <3.9
+    - matplotlib-base
     - uncertainties
     - pyyaml >=5.1
     - dill
@@ -49,6 +51,7 @@ requirements:
     - omegaconf
     - ipywidgets
     - rich
+    - setuptools <82
 
 test:
   imports:
