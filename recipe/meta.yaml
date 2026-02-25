@@ -51,6 +51,7 @@ requirements:
     - omegaconf
     - ipywidgets
     - rich
+    - setuptools <82
 
 test:
   imports:
