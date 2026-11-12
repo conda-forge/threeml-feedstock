@@ -1,0 +1,81 @@
+context:
+  name: threeml 
+  version: 2.6.1 
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 6fb365a72814d55e50c09d582ec1014c60713cd86649a427977d8023875a24df
+
+build:
+  skip:
+  - win
+  - match(python, "<3.11")
+  - match(python, ">=3.14")
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
+
+requirements:
+  host:
+    - pip
+    - python 
+    - setuptools
+    - versioneer
+
+  run:
+    - __unix
+    - python
+    - numpy >=1.26
+    - scipy >=1.13
+    - emcee >=3.1.5
+    - astropy-base
+    - matplotlib-base
+    - uncertainties
+    - pyyaml >=5.1
+    - dill
+    - iminuit >=2.0
+    - astromodels >=2.5.1
+    - astroquery
+    - corner >=1.0.2
+    - pandas
+    - requests
+    - speclite >=0.20
+    - ipython
+    - ipyparallel
+    - joblib
+    - numexpr
+    - numba
+    - numdifftools
+    - tqdm >=4.67.2
+    - omegaconf
+    - rich
+    - packaging
+    - if: (osx and x86_64)
+      then: llvmlite <0.46
+
+  run_constraints:
+    - if: not (linux and aarch64)
+      then: xspec >=12.15.1
+
+tests:
+  - python:
+      imports:
+        - threeML 
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+
+about:
+  homepage: https://github.com/threeML/threeML
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: The Multi-Mission Maximum Likelihood Framework 
+  documentation: https://threeML.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
